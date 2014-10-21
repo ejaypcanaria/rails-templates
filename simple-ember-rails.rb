@@ -15,7 +15,6 @@ gsub_file 'app/views/layouts/application.html.erb',
 		"<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>",
 		"<%= javascript_include_tag 'application' %>"
 
-
 file '.ruby-gemset', "#{app_name}"
 file '.ruby-version', '2.1.2'
 file '.editorconfig', <<-EDITORCONFIG
@@ -58,6 +57,8 @@ indent_size = 2
 indent_style = space
 indent_size = 2
 EDITORCONFIG
+
+run 'bundle install'
 
 inject_into_file 'config/environments/development.rb',
 after: 'Rails.application.configure do' do<<-RUBY
